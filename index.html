@@ -171,84 +171,6 @@
             padding-left: 25px;
         }
 
-
-/* Базовые стили для dropdown */
-.has-dropdown {
-    position: relative;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    min-width: 200px;
-    z-index: 1000;
-}
-
-.dropdown a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #333;
-    border-bottom: 1px solid #eee;
-}
-
-.dropdown a:hover {
-    background-color: #f5f5f5;
-}
-
-/* Десктоп: показываем при hover */
-@media (min-width: 769px) {
-    .has-dropdown:hover .dropdown {
-        display: block;
-    }
-}
-
-/* Мобильные устройства */
-@media (max-width: 768px) {
-    .dropdown {
-        position: static;
-        box-shadow: none;
-        background: #f9f9f9;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-    
-    .dropdown.active {
-        display: block;
-        max-height: 500px;
-    }
-    
-    .dropdown a {
-        padding: 15px 25px;
-        cursor: pointer;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-        touch-action: manipulation;
-    }
-    
-    .dropdown a:active {
-        background-color: #e0e0e0;
-    }
-    
-    /* Стрелка для указания dropdown */
-    .has-dropdown > .nav-link::after {
-        content: ' ▼';
-        font-size: 0.8em;
-        margin-left: 5px;
-    }
-}
-
-/* Делаем элементы кликабельными на iOS */
-.category-btn,
-.nav-link {
-    cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-    user-select: none;
-    -webkit-user-select: none;
-}
-
         /* Main Content */
         .main {
             margin-top: 180px;
@@ -1199,50 +1121,50 @@
   </span>
   <span class="label">Меню</span>
 </button>
-            <ul class="nav-menu">
-    <li class="nav-item">
-        <a href="#home" class="nav-link">Главная</a>
-    </li>
-    <li class="nav-item has-dropdown">
-        <a href="#monuments" class="nav-link">Каталог памятников</a>
-        <div class="dropdown">
-            <a href="#" data-category="vertical-monuments" class="category-btn">Вертикальные памятники</a>
-            <a href="#" data-category="vertical-carved" class="category-btn">Вертикальные резные</a>
-            <a href="#" data-category="horizontal-monuments" class="category-btn">Горизонтальные памятники</a>
-            <a href="#" data-category="horizontal-carved" class="category-btn">Горизонтальные резные</a>
-            <a href="#" data-category="combined-monuments" class="category-btn">Комбинированные памятники</a>
-            <a href="#" data-category="complexes" class="category-btn">Комплексы</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a href="#about" class="nav-link">О компании</a>
-    </li>
-    <li class="nav-item has-dropdown">
-        <a href="#products" class="nav-link">Товары</a>
-        <div class="dropdown">
-            <a href="#" data-category="coffins" class="category-btn">Гробы</a>
-            <a href="#" data-category="wreaths" class="category-btn">Венки</a>
-            <a href="#" data-category="crosses" class="category-btn">Кресты</a>
-            <a href="#" data-category="ribbons" class="category-btn">Траурные ленты</a>
-        </div>
-    </li>
-    <li class="nav-item has-dropdown">
-        <a href="#services" class="nav-link">Услуги</a>
-        <div class="dropdown">
-            <a href="#services">Ритуальные услуги</a>
-            <a href="#grave-cleaning">Уборка места захоронений</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a href="#improvement" class="nav-link">Благоустройство захоронений</a>
-    </li>
-    <li class="nav-item">
-        <a href="#reviews" class="nav-link">Отзывы</a>
-    </li>
-    <li class="nav-item">
-        <a href="#contacts" class="nav-link">Контакты</a>
-    </li>
-</ul>
+            <ul class="nav-menu" id="primary-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#monuments" class="nav-link">Каталог памятников</a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" onclick="showCategory('vertical-monuments')">Вертикальные памятники</a>
+                        <a href="javascript:void(0)" onclick="showCategory('vertical-carved')">Вертикальные резные</a>
+                        <a href="javascript:void(0)" onclick="showCategory('horizontal-monuments')">Горизонтальные памятники</a>
+                        <a href="javascript:void(0)" onclick="showCategory('horizontal-carved')">Горизонтальные резные</a>
+                        <a href="javascript:void(0)" onclick="showCategory('combined-monuments')">Комбинированные памятники</a>
+                        <a href="javascript:void(0)" onclick="showCategory('complexes')">Комплексы</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">О компании</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#products" class="nav-link">Товары</a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" onclick="showCategory('coffins')">Гробы</a>
+                        <a href="javascript:void(0)" onclick="showCategory('wreaths')">Венки</a>
+                        <a href="javascript:void(0)" onclick="showCategory('crosses')">Кресты</a>
+                        <a href="javascript:void(0)" onclick="showCategory('ribbons')">Траурные ленты</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Услуги</a>
+                    <div class="dropdown">
+                        <a href="#services">Ритуальные услуги</a>
+                        <a href="#grave-cleaning">Уборка места захоронений</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#improvement" class="nav-link">Благоустройство захоронений</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews" class="nav-link">Отзывы</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacts" class="nav-link">Контакты</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -1734,39 +1656,32 @@
    
 <script>
 /* =====================
-   ЗАГРУЗКА КАТАЛОГА И ИНИЦИАЛИЗАЦИЯ
+   КАТАЛОГ: ДАННЫЕ И НАСТРОЙКИ
    ===================== */
-
 let CATALOG_DATA = {};
 
-// Маппинг ключей из меню -> ключи объектов в JSON
+// Маппинг ключей из меню -> ключи объектов в JSON / теги
 const categoryMapping = {
-  'wreaths': 'венки',
-  'coffins': 'гробы',
-  'crosses': 'кресты+металлические',
-  'ribbons': 'траурные ленты',
-  'monuments': 'памятники',
-  'fences': 'Оградки для кладбищ',
+  wreaths: 'венки',
+  coffins: 'гробы',
+  crosses: 'кресты+металлические',
+  ribbons: 'траурные ленты',
+  monuments: 'памятники',
+  fences: 'Оградки для кладбищ',
   'cemetery-fences': 'Оградки для кладбищ',
-  'improvement': 'Примеры наших работ',
+  improvement: 'Примеры наших работ',
   'grave-care': 'уход за захоронением',
 
-  // НОВОЕ: подпункты каталога памятников — это фильтры по тегам
+  // Подпункты каталога памятников — фильтры по тегам
   'vertical-monuments': 'памятники:вертикальные',
   'vertical-carved': 'памятники:вертикальные_резные',
   'horizontal-monuments': 'памятники:горизонтальные',
   'horizontal-carved': 'памятники:горизонтальные_резные',
   'combined-monuments': 'памятники:комбинированные',
-  'complexes': 'памятники:комплексы'
+  complexes: 'памятники:комплексы'
 };
 
-function hasTag(item, tag) {
-  if (!item) return false;
-  const t = (item.tags || []).map(s => String(s).trim().toLowerCase());
-  return t.includes(String(tag).trim().toLowerCase());
-}
-
-// Человекочитаемые названия
+// Человекочитаемые названия категорий
 const categoryNames = {
   wreaths: 'Венки',
   coffins: 'Гробы',
@@ -1785,29 +1700,37 @@ const categoryNames = {
   'grave-care': 'Уход за захоронением'
 };
 
-// Текущее состояние галерей
+// Состояние галерей/модалок
 let currentProduct = null;
 let currentGalleryProducts = [];
 let currentGalleryIndex = 0;
 let currentGalleryImages = [];
 let currentGalleryImageIndex = 0;
 
-// Универсальный фикс URL: добавляем https:// если забыли и кодируем пробелы/кириллицу
+/* =====================
+   УТИЛИТЫ
+   ===================== */
+const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+function hasTag(item, tag) {
+  if (!item) return false;
+  const t = (item.tags || []).map(s => String(s).trim().toLowerCase());
+  return t.includes(String(tag).trim().toLowerCase());
+}
+
+// Добавляем протокол и безопасно кодируем URL
 function sanitizeUrl(url) {
   if (!url) return "";
   let s = url.trim();
   if (!/^https?:\/\//i.test(s)) s = "https://" + s;
-  try {
-    // если было закодировано дважды — decodeURI снимет лишнее
-    s = encodeURI(decodeURI(s));
-  } catch (e) {
-    // если строка криво закодирована — хотя бы одинарно закодируем
-    s = encodeURI(s);
-  }
+  try { s = encodeURI(decodeURI(s)); }
+  catch (e) { s = encodeURI(s); }
   return s;
 }
 
-// Получение данных по категории
+/* =====================
+   РАБОТА С КАТЕГОРИЯМИ
+   ===================== */
 function getCategoryData(category) {
   const mapped = categoryMapping[category];
   if (!mapped) return [];
@@ -1831,73 +1754,93 @@ function getCategoryData(category) {
   return CATALOG_DATA[mapped] || [];
 }
 
-// Рендер карточек товаров
+/* ПУБЛИЧНЫЙ API: показать категорию (используется и HTML-ом, и JS-ом)
+   — рендерит карточки
+   — скроллит к секции
+   — на мобильных закрывает бургер и подменю */
 function showCategory(category) {
   const productsContent = document.getElementById('products-content');
   const categoryProducts = getCategoryData(category);
 
+  if (!productsContent) return;
+
   if (!categoryProducts || categoryProducts.length === 0) {
-    productsContent.innerHTML = '<p style="text-align: center; font-size: 18px; color: var(--text-secondary);">Товары в данной категории временно недоступны</p>';
-    return;
+    productsContent.innerHTML =
+      '<p style="text-align: center; font-size: 18px; color: var(--text-secondary);">Товары в данной категории временно недоступны</p>';
+  } else {
+    const itemCount = categoryProducts.length;
+    let html = `
+      <h3 style="text-align: center; margin-bottom: 20px; font-size: 32px; color: var(--accent-gold);">
+        ${categoryNames[category] || ''}
+      </h3>
+      <p style="text-align: center; margin-bottom: 40px; font-size: 20px; color: var(--accent-brown);">
+        📦 Найдено товаров: <strong>${itemCount}</strong>
+      </p>
+      <div class="products-grid">
+    `;
+
+    categoryProducts.forEach((product, index) => {
+      const imgUrl = sanitizeUrl(product.url);
+      const desc = (product.description || '').toString();
+      html += `
+        <div class="product-card" onclick="openProductModal('${category}', ${index})">
+          <img src="${imgUrl}" alt="${product.name || ''}" class="product-image" loading="lazy">
+          <div class="product-info">
+            <h4 class="product-title">${product.name || ''}</h4>
+            <p class="product-description">${desc.substring(0, 120)}...</p>
+          </div>
+        </div>
+      `;
+    });
+
+    html += '</div>';
+    productsContent.innerHTML = html;
   }
 
-  const itemCount = categoryProducts.length;
-  let html = `<h3 style="text-align: center; margin-bottom: 20px; font-size: 32px; color: var(--accent-gold);">${categoryNames[category] || ''}</h3>`;
-  html += `<p style="text-align: center; margin-bottom: 40px; font-size: 20px; color: var(--accent-brown);">📦 Найдено товаров: <strong>${itemCount}</strong></p>`;
-  html += '<div class="products-grid">';
+  // Скролл к блоку товаров
+  const products = document.getElementById('products');
+  if (products) products.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  categoryProducts.forEach((product, index) => {
-    const imgUrl = sanitizeUrl(product.url);
-    const desc = (product.description || '').toString();
-    html += `
-      <div class="product-card" onclick="openProductModal('${category}', ${index})">
-        <img src="${imgUrl}" alt="${product.name || ''}" class="product-image" loading="lazy">
-        <div class="product-info">
-          <h4 class="product-title">${product.name || ''}</h4>
-          <p class="product-description">${desc.substring(0, 120)}...</p>
-        </div>
-      </div>
-    `;
-  });
-
-  html += '</div>';
-  productsContent.innerHTML = html;
-  document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+  // На мобильных — закрыть подменю и бургер
+  closeMobileNav();
 }
 
-// Открытие модалки товара
+// Делаем showCategory доступной глобально для inline-обработчиков
+window.showCategory = showCategory;
+
+/* =====================
+   МОДАЛКА ТОВАРА / ПОЛНОЭКРАННАЯ ГАЛЕРЕЯ
+   ===================== */
 function openProductModal(category, index) {
   const categoryProducts = getCategoryData(category);
   currentGalleryProducts = categoryProducts;
   currentGalleryIndex = index;
   currentProduct = currentGalleryProducts[currentGalleryIndex];
 
-  document.getElementById('modalTitle').textContent = currentProduct.name || '';
-  document.getElementById('modalDescription').textContent = currentProduct.description || '';
+  document.getElementById('modalTitle').textContent = currentProduct?.name || '';
+  document.getElementById('modalDescription').textContent = currentProduct?.description || '';
 
   updateModalGallery();
   document.getElementById('productModal').style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
 
-// Обновление контента модалки
 function updateModalGallery() {
   if (!currentProduct) return;
-
   const mainImage = document.getElementById('galleryMainImage');
   const counter = document.getElementById('galleryCounter');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
 
-  mainImage.src = sanitizeUrl(currentProduct.url);
-  mainImage.alt = currentProduct.name || '';
-
-  counter.textContent = `${currentGalleryIndex + 1} из ${currentGalleryProducts.length}`;
-  prevBtn.disabled = currentGalleryIndex === 0;
-  nextBtn.disabled = currentGalleryIndex === currentGalleryProducts.length - 1;
+  if (mainImage) {
+    mainImage.src = sanitizeUrl(currentProduct.url);
+    mainImage.alt = currentProduct.name || '';
+  }
+  if (counter) counter.textContent = `${currentGalleryIndex + 1} из ${currentGalleryProducts.length}`;
+  if (prevBtn) prevBtn.disabled = currentGalleryIndex === 0;
+  if (nextBtn) nextBtn.disabled = currentGalleryIndex === currentGalleryProducts.length - 1;
 }
 
-// Полноэкранная галерея
 function openFullscreenGallery() {
   document.getElementById('fullscreenGallery').style.display = 'block';
   document.body.style.overflow = 'hidden';
@@ -1907,6 +1850,8 @@ function openFullscreenGallery() {
 function updateFullscreenGallery() {
   const fullscreenImage = document.getElementById('fullscreenImage');
   const fullscreenCounter = document.getElementById('fullscreenCounter');
+
+  if (!fullscreenImage || !fullscreenCounter) return;
 
   if (currentGalleryImages.length > 0) {
     fullscreenImage.src = sanitizeUrl(currentGalleryImages[currentGalleryImageIndex].url);
@@ -1972,7 +1917,9 @@ function nextImage() {
   }
 }
 
-// ГАЛЕРЕЯ "ПРИМЕРЫ НАШИХ РАБОТ"
+/* =====================
+   ГАЛЕРЕЯ "ПРИМЕРЫ НАШИХ РАБОТ"
+   ===================== */
 function loadImprovementGallery() {
   const grid = document.getElementById('improvement-gallery-grid');
   const countEl = document.getElementById('improvement-count');
@@ -1985,17 +1932,17 @@ function loadImprovementGallery() {
 
   countEl.textContent = items.length;
 
-  // 1) сохраняем глобально
+  // 1) глобально
   window.improvementImages = items;
 
-  // 2) рисуем карточки без inline-JS
+  // 2) карточки без inline-JS
   grid.innerHTML = items.map((item, idx) => `
     <div class="gallery-item" data-idx="${idx}">
       <img src="${item.url}" alt="${item.alt}" class="gallery-image" loading="lazy">
     </div>
   `).join('');
 
-  // 3) навешиваем клики программно
+  // 3) клики
   grid.querySelectorAll('.gallery-item').forEach(el => {
     el.addEventListener('click', () => {
       const i = Number(el.dataset.idx || 0);
@@ -2004,7 +1951,9 @@ function loadImprovementGallery() {
   });
 }
 
-// Плавный скролл
+/* =====================
+   ПЛАВНЫЙ СКРОЛЛ
+   ===================== */
 function bindSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -2020,16 +1969,18 @@ function bindSmoothScroll() {
   });
 }
 
-// Загрузка JSON
+/* =====================
+   ЗАГРУЗКА JSON
+   ===================== */
 async function loadCatalog() {
   const res = await fetch('./edem_catalog_full_pretty.json', { cache: 'no-store' });
   if (!res.ok) {
-    console.error('Не удалось загрузить edem_catalog_full.json');
+    console.error('Не удалось загрузить edem_catalog_full_pretty.json');
     return;
   }
   CATALOG_DATA = await res.json();
 
-  // Санитизация всех URL в каталоге
+  // Санитизация URL в каталоге
   for (const [k, arr] of Object.entries(CATALOG_DATA)) {
     if (Array.isArray(arr)) {
       arr.forEach(item => {
@@ -2053,29 +2004,88 @@ async function loadCatalog() {
     (CATALOG_DATA['Примеры наших работ']?.length || 0) +
     (CATALOG_DATA['уход за захоронением']?.length || 0);
 
-  console.log('Каталог загружен.');
-  console.log('Итого записей:', total);
+  console.log('Каталог загружен. Итого записей:', total);
 }
 
-// Привязка обработчиков
+/* =====================
+   МОБИЛЬНОЕ МЕНЮ
+   ===================== */
+function closeMobileNav() {
+  const nav = document.querySelector('.nav');
+  const toggle = document.querySelector('.nav-toggle');
+  if (!nav) return;
+
+  // Закрыть раскрытые подменю-аккордеоны
+  if (isMobile()) {
+    document.querySelectorAll('.nav-item.open').forEach(it => it.classList.remove('open'));
+  }
+  // Закрыть сам бургер
+  nav.classList.remove('open');
+  if (toggle) toggle.setAttribute('aria-expanded', 'false');
+}
+
+function bindMobileNav() {
+  const nav = document.querySelector('.nav');
+  const toggle = document.querySelector('.nav-toggle');
+
+  // Бургер
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  // Аккордеон подменю только на мобильных
+  if (isMobile()) {
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const link = item.querySelector(':scope > .nav-link');
+      const dropdown = item.querySelector(':scope > .dropdown');
+      if (link && dropdown) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();               // не скроллим по #, а открываем список
+          item.classList.toggle('open');    // аккордеон
+        });
+      }
+    });
+
+    // Автозакрытие бургера при клике по любому якорю меню
+    document.querySelectorAll('.nav a[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => closeMobileNav());
+    });
+  }
+
+  // Страховка: клики по ссылкам с data-category (если решишь уйти от inline onclick)
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-category]');
+    if (!a) return;
+    e.preventDefault();
+    const cat = a.getAttribute('data-category');
+    if (cat) showCategory(cat);
+  });
+}
+
+/* =====================
+   МОДАЛКИ/ГАЛЕРЕИ: ПРИВЯЗКА UI
+   ===================== */
 function bindUi() {
-  // модалка
+  // Модалка товара
   document.getElementById('prevBtn')?.addEventListener('click', prevImage);
   document.getElementById('nextBtn')?.addEventListener('click', nextImage);
   document.getElementById('openGalleryBtn')?.addEventListener('click', openFullscreenGallery);
 
-  // полноэкранная галерея
+  // Полноэкранная галерея
   document.getElementById('fullscreenPrev')?.addEventListener('click', prevImage);
   document.getElementById('fullscreenNext')?.addEventListener('click', nextImage);
   document.getElementById('fullscreenClose')?.addEventListener('click', closeFullscreenGallery);
 
-  // закрытие модалки
+  // Закрытие модалки
   document.querySelector('.close')?.addEventListener('click', function() {
     document.getElementById('productModal').style.display = 'none';
     document.body.style.overflow = 'auto';
   });
 
-  // клик вне модалки/галереи
+  // Клик вне модалки/галереи
   window.addEventListener('click', function(event) {
     const modal = document.getElementById('productModal');
     const fullscreenGallery = document.getElementById('fullscreenGallery');
@@ -2088,7 +2098,7 @@ function bindUi() {
     }
   });
 
-  // клавиатура
+  // Клавиатура
   document.addEventListener('keydown', function(event) {
     const fsOpen = document.getElementById('fullscreenGallery').style.display === 'block';
     const modalOpen = document.getElementById('productModal').style.display === 'block';
@@ -2107,118 +2117,28 @@ function bindUi() {
   bindSmoothScroll();
 }
 
-// ===== STARTUP =====
-// ===== STARTUP =====
+/* =====================
+   STARTUP
+   ===================== */
 document.addEventListener('DOMContentLoaded', async () => {
-  // Полезная проверка: запускать через http://, а не file://
   if (location.protocol === 'file:') {
     console.warn('Запустите страницу через локальный сервер (http://localhost:PORT), иначе fetch JSON может быть заблокирован CORS.');
   }
 
-  bindUi();                // навешиваем обработчики модалки/галереи/скролла
-  await loadCatalog();     // грузим JSON и отрисовываем «Примеры наших работ»
-  initGraveCleaningImages();// собираем массив для openGallery(graveCleaningImages, i)
+  bindUi();                 // модалки/галереи/скролл
+  bindMobileNav();          // бургер + аккордеон + автозакрытия
 
-  // Мобильное меню (бургер + аккордеон подменю)
-  const nav = document.querySelector('.nav');
-  const toggle = document.querySelector('.nav-toggle');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-  }
-
-  if (window.matchMedia('(max-width: 768px)').matches) {
-    document.querySelectorAll('.nav-item').forEach(item => {
-      const link = item.querySelector(':scope > .nav-link');
-      const dropdown = item.querySelector(':scope > .dropdown');
-      if (link && dropdown) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          item.classList.toggle('open');
-        });
-      }
-    });
-
-    document.querySelectorAll('.nav a[href^="#"]').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
+  await loadCatalog();      // загрузка каталога
+  initGraveCleaningImages();// сбор изображений из блока «Уборка места захоронения»
 });
 
-// Собираем изображения из блока "Уборка места захоронений" для inline-обработчиков
+// Собираем изображения из блока "Уборка места захоронений" для openGallery(...)
 function initGraveCleaningImages() {
   const imgs = document.querySelectorAll('.grave-cleaning-gallery .gallery-image');
   const list = Array.from(imgs).map(img => ({
     url: img.getAttribute('src'),
     alt: img.getAttribute('alt') || ''
   }));
-  window.graveCleaningImages = list; // делаем доступным глобально
+  window.graveCleaningImages = list;
 }
-
-// Обработка мобильного меню и dropdown
-document.addEventListener('DOMContentLoaded', function() {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
-    // Обработка категорий памятников
-    const categoryLinks = document.querySelectorAll('.category-btn');
-    categoryLinks.forEach(link => {
-        const category = link.getAttribute('data-category');
-        
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            showCategory(category);
-            
-            // Закрываем dropdown на мобильных
-            if (window.innerWidth <= 768) {
-                const dropdown = this.closest('.dropdown');
-                if (dropdown) {
-                    dropdown.classList.remove('active');
-                }
-            }
-        });
-        
-        // Для мобильных устройств добавляем touchstart
-        if (isTouchDevice) {
-            link.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                showCategory(category);
-            }, { passive: false });
-        }
-    });
-    
-    // Обработка dropdown меню на мобильных
-    const dropdownParents = document.querySelectorAll('.has-dropdown > .nav-link');
-    dropdownParents.forEach(parent => {
-        parent.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                const dropdown = this.nextElementSibling;
-                
-                // Закрываем другие dropdown
-                document.querySelectorAll('.dropdown.active').forEach(d => {
-                    if (d !== dropdown) d.classList.remove('active');
-                });
-                
-                // Переключаем текущий dropdown
-                dropdown.classList.toggle('active');
-            }
-        });
-    });
-    
-    // Закрытие dropdown при клике вне меню
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.has-dropdown')) {
-            document.querySelectorAll('.dropdown.active').forEach(d => {
-                d.classList.remove('active');
-            });
-        }
-    });
-});
 </script>
-
